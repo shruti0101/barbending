@@ -164,6 +164,11 @@ const Footer = () => {
                     CONTACT US
                   </Link>
                 </li>
+                <li>
+                  <Link href="/sitemap" className="hover:text-[#FAAC18]">
+                    SITEMAP
+                  </Link>
+                </li>
               </ul>
             </div>
 
