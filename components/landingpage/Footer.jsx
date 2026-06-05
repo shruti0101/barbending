@@ -340,12 +340,13 @@ const Footer = () => {
       {/* Bottom Bar */}
       <div className="border-t border-gray-700 mt-10 pt-4 text-center text-sm text-gray-400">
         © 2025 Shree Shakti Infratech, All Rights Reserved. Managed and
-        Developed By{" "}
+        Developed By{" "}  Inquiry Bazaar Pvt. Ltd.  {" "}
         <a
-          href="https://promozionebranding.com/"
+          target="_blank"
+          href="https://inquirybazaar.com/"
           className="text-[#FAAC18] hover:underline"
         >
-          Promozione Branding Pvt Ltd.
+           B2B Marketplace
         </a>
       </div>
     </footer>
