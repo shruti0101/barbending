@@ -112,7 +112,7 @@ const Footer = () => {
                   <Facebook className="w-5 h-5 hover:text-[#FAAC18] cursor-pointer hover:scale-110 transition-transform duration-200" />
                 </a>
                 <a
-                  href="https://www.instagram.com/shree_shakti_infratech/"
+                  href="https://www.instagram.com/shree_shakti_infratech_delhi/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -125,13 +125,7 @@ const Footer = () => {
                 >
                   <Youtube className="w-5 h-5 hover:text-[#FAAC18] cursor-pointer hover:scale-110 transition-transform duration-200" />
                 </a>
-                <a
-                  href="https://www.linkedin.com/in/shree-shakti-infratech-248068265/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Linkedin className="w-5 h-5 hover:text-[#FAAC18] cursor-pointer hover:scale-110 transition-transform duration-200" />
-                </a>
+              
               </div>
             </div>
 

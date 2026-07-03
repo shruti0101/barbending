@@ -21,7 +21,7 @@ const SocialBar = () => {
 
       {/* Instagram */}
       <a
-        href="https://www.instagram.com/shree_shakti_infratech/"
+        href="https://www.instagram.com/shree_shakti_infratech_delhi/"
         target="_blank"
         rel="noopener noreferrer"
         className="group relative flex items-center w-44 translate-x-[130px] hover:translate-x-0 rounded-l-lg bg-white text-pink-600 shadow-md border border-gray-200 transition-all duration-300"
