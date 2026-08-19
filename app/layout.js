@@ -1,5 +1,5 @@
 import { Roboto } from "next/font/google";
-import Script from "next/script"; 
+import Script from "next/script";
 import "./globals.css";
 import ScrollToTop from "@/components/ScrollToTop";
 import Social from "@/components/landingpage/Social";
@@ -32,15 +32,36 @@ export default function RootLayout({ children }) {
           src="https://www.google.com/recaptcha/api.js"
           strategy="afterInteractive"
         />
-      </head>
-      <body className={`${roboto.variable} font-sans antialiased`}>
 
-   <Social />
+        <Script id="google-tag-manager" strategy="beforeInteractive">
+          {`
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-TLQRP8XB');
+          `}
+        </Script>
+      </head>
+
+      <body className={`${roboto.variable} font-sans antialiased`}>
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-TLQRP8XB"
+            height="0"
+            width="0"
+            style={{
+              display: "none",
+              visibility: "hidden",
+            }}
+          />
+        </noscript>
+
+        <Social />
         <Stickybutton />
-      
+
         <ScrollToTop />
         <Whatsapp></Whatsapp>
-
 
         <main>{children}</main>
       </body>
