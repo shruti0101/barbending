@@ -45,6 +45,7 @@ const Enquiry = ({ isOpen, onClose }) => {
       const formData = {
         platform: "Shree Shakti Infratech Enquiry",
         platformEmail: "shreeshaktiinfratech@gmail.com",
+        supplierToken: "6a2799d20dd27bd1398dcc10",
         name,
         phone,
         email,

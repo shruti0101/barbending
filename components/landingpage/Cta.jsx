@@ -36,6 +36,7 @@ const Cta = () => {
       const formData = {
         platform: "Shree Shakti Infratech Website",
         platformEmail: "shreeshaktiinfratech@gmail.com",
+        supplierToken: "6a2799d20dd27bd1398dcc10",
         name,
         phone,
         email,

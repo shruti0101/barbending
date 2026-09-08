@@ -53,6 +53,7 @@ export default function PopupForm({ onClose, onOpen }) {
       const formData = {
         platform: "Shree Shakti Infratech Popup",
         platformEmail: "shreeshaktiinfratech@gmail.com",
+        supplierToken: "6a2799d20dd27bd1398dcc10",
         name,
         phone,
         email,
