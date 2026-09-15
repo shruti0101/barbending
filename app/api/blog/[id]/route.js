@@ -1,6 +1,7 @@
 import { connect } from "@/Database/Db";
 import Blog from "@/models/blog";
-import imagekit from "@/utils/imageKit";
+import { deleteFromR2 } from "@/utils/deleteFromR2";
+import { uploadToR2 } from "@/utils/uploadToR2";
 
 // GET /api/blog/:id
 export async function GET(_req, { params }) {
@@ -35,22 +36,30 @@ export async function PUT(req, { params }) {
     if (!existing) return new Response("Not found", { status: 404 });
 
     // If new image uploaded, delete old from ImageKit and upload new
-    if (newFile && newFile.name) {
-      // delete old
+     if (newFile && newFile.name) {
+      // ✅ DELETE OLD IMAGE
       if (existing.imageFileId) {
-        try { await imagekit.deleteFile(existing.imageFileId); } catch (e) { console.warn("Delete old IK file:", e?.message); }
+        await deleteFromR2(existing.imageFileId);
       }
-      // upload new
+
+      // ⬆ UPLOAD NEW IMAGE
       const bytes = await newFile.arrayBuffer();
       const buffer = Buffer.from(bytes);
-      const uploaded = await imagekit.upload({
+
+      const fileName = `${Date.now()}-${newFile.name}`;
+
+      // upload to R2
+      const uploadedImage = await uploadToR2({
         file: buffer,
-        fileName: newFile.name,
-        folder: "blogs",
+        folder: "shreeshakti",
+        fileName,
+        contentType: newFile.type,
       });
-      data.image = uploaded.url;
-      data.imageFileId = uploaded.fileId;
+
+      data.image = uploadedImage.url;
+      data.imageFileId = uploadedImage.key; // ✅ FULL PATH
     }
+
 
     const updated = await Blog.findByIdAndUpdate(params.id, data, { new: true });
     return new Response(JSON.stringify(updated), { status: 200 });
@@ -68,8 +77,7 @@ export async function DELETE(_req, { params }) {
     if (!blog) return new Response("Not found", { status: 404 });
 
     if (blog.imageFileId) {
-      try { await imagekit.deleteFile(blog.imageFileId); }
-      catch (e) { console.warn("ImageKit delete error:", e?.message); }
+      await deleteFromR2(blog.imageFileId);
     }
 
     await Blog.findByIdAndDelete(params.id);

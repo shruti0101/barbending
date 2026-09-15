@@ -1,6 +1,7 @@
 import { connect } from "@/Database/Db";
 import Blog from "@/models/blog";
 import imagekit from "@/utils/imageKit";
+import { uploadToR2 } from "@/utils/uploadToR2";
 
 // GET /api/blog  -> list all blogs
 export async function GET() {
@@ -29,14 +30,17 @@ export async function POST(req) {
       const bytes = await file.arrayBuffer();
       const buffer = Buffer.from(bytes);
 
-      const uploaded = await imagekit.upload({
+      const fileName = `${Date.now()}-${file.name}`;
+
+      const uploadedImage = await uploadToR2({
         file: buffer,
-        fileName: file.name,
-        folder: "blogs",
+        folder: "shreeshakti",
+        fileName,
+        contentType: file.type,
       });
 
-      imageUrl = uploaded.url;
-      imageFileId = uploaded.fileId;
+      imageUrl = uploadedImage.url;
+      imageFileId = uploadedImage.key;
     }
 
     const blog = await Blog.create({
