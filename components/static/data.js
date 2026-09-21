@@ -110,16 +110,8 @@ export const serviceLocations = [
     label: "Dehradun",
     id: 22,
   },
-  {
-    href: "/bar-bending-machine-supplier-in-delhi",
-    label: "Delhi",
-    id: 23,
-  },
-  {
-    href: "/bar-bending-machine-supplier-in-delhi-ncr",
-    label: "Delhi NCR",
-    id: 24,
-  },
+  
+  
   {
     href: "/bar-bending-machine-supplier-in-faizabad",
     label: "Faizabad",
@@ -562,11 +554,7 @@ export const serviceLocations = [
     id: 112,
   },
 
-  {
-    href: "/bar-bending-machine-supplier-in-goa",
-    label: "Goa",
-    id: 113,
-  },
+
 
   {
     href: "/bar-bending-machine-supplier-in-rewari",
